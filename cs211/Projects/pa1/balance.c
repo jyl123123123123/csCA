@@ -5,7 +5,8 @@
 
 int main(int argc, char* argv[])
 {
-    if (argc < 2) {
+    if (argc < 2)
+    {
         printf("%s\n", "Invalid number of arguments.");
         return 1;
     }
