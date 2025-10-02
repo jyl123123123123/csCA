@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
         {
             argv[1][i] = '\0';
             break;      
+            // hi
         }
     }
     printf("The out put is: %s\n", argv[1]);
