@@ -1,0 +1,82 @@
+///// C Program Anatomy
+#include <stdio.h> <- This is how you import libraries.
+#include <- used to define an import
+<stdio.h> <- means "Standard IO (Input, Output)" library
+
+/* */ -< Comment notation
+
+/// Function Calls
+x + Factorial(y) <- Here, we are adding the result of the function "Factorial" with an input "y" to our variable "x".
+This cannot have a void return type in the function, so you have to return something like an int.
+
+Factorial(y); <- This is just to run functions. They can have void return types.
+
+int Factorial(int) <- This is a FUNCTION SIGNATURE, you can define functions without explicitly defining parameter names.
+
+printf("%d\n", counter); <- This is the standard print function. Make sure not to use \, not /. %d says that it is a decimal and \n says to put a new line after the print.
+
+scanf("%d", &startPoint); <- This function reads a decimal integer and assigns it to the address of the startPoint variable.
+
+// Memory
+
+Memory in C can be summarized as an Array. Each index represents a byte. Each data type (int, double) takes up an amount of bytes.
+- Integers take up 4 bytes.
+- Doubles take up 8 bytes.
+- Chars take up 1 byte.
+
+// Pointer
+
+Pointers hold addresses as values. Pointers are addresses (basically)
+
+int *p; <- You have to declare the data type of the pointer.
+
+*p gives the value stored at the address, &p gives the address itself.
+
+EXAMPLE:
+
+int x = 5 <- The value of x is 5.
+int *p = &x <- We set the value of pointer p to the address of x. The address is not the same as the value.
+int c = *p <- We set C to the value of pointer p, since p is the address of X, the code looks at the value stored at the address, which is 5.
+
+
+// Type Casting
+
+Unlike Java, we can dynamically change types in C. This means that we don't have to explicitly say what a type is to change it.
+
+Example:
+int a;
+float b;
+float x = a + b; // implicitly convert value of a to float
+int y = a + (int) b; // explicitly convert value of b to int
+
+If we define an int a and a float b, we can convert the type of a to a float if we add a and b into a resulting float.
+If we define y as an int and do "a + (int) b", we explicitly define b as an int.
+
+Explicit means to define literally by word.
+Implicit means we don't write anything to define it but the machine interprets it for us.
+
+// Arrays
+
+Arrays are declared slightly differently than in java.
+
+To create an int array, we write int a[20];
+
+To access an array item in array a, we write a[15].
+
+Example:
+
+int a[20];
+int c = a[15];
+
+Similar to Java, all indexes start at 0 and unlike java, if you try to access the wrong index, it will NOT warn you.
+
+// Pointer Arithmetic
+
+int *i -> i++, for integer address adding, it is i = i+4 because ints are 4 bytes.
+for chars, it is 1 byte.
+for doubles, it is 8 bytes.
+and so on.
+
+double x[10];
+double *y = x;
+*(y+3) = 13; (x[3] = 13).

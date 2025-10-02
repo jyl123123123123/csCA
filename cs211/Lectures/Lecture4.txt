@@ -1,0 +1,41 @@
+// Class 4
+
+// Using scanf
+// - Reads from standard input and attempts to parse data with a format string
+// - For each format specifier, you must include a pointer to the appropriate type
+// - scanf returns an integer indicating how many of the requested values it read
+// - If the next character is not a digit, %d will fail.
+// - returns -1 if it is at the end of the file.
+
+// Format specifiers
+// - %d (decimal integer, int, long int, short int)
+// - %i (C-format integer, int, long int, short int)
+// - %f (float, double)
+// - %s (string, char) (never use this by itself, use %xs instead where x is the max number of characters to read, otherwise it will go forever.)
+
+// Program Output
+// - A return code or exit status is a byte (0-255) showing whether the program succeeded (0) or failed (non-zero)
+// - The number is the return int of main. (int main), this is the argument of exit.
+
+// Writing to a file
+// - Lines do not need to be printed all at once like in Java.
+// - putchar/putch can be used to write a single character to a file. (one byte at a time)
+// - printf/fprintf can be used to write a formatted string to a file.
+
+// Using printf
+// - printf is essentially the same as printf for formatting
+// - %f is used for float and double
+// - %e is used for scientific notation and %g is used for FP notation.
+// - Add .[number of digits] to limit the number of digits printed after the decimal point.
+
+// Lesson 2
+
+// How do we index multi-dimensional arrays?
+// - These are indexed similar to one-dimensional arrays. The address is the address of the array + the index the element size.
+// - Pointer arithmetic implciitly multiplies the index by the element size.
+// - For higher-dimensional arrays, the elements are smaller arrays.
+
+// How do we pass multi-dimenisional arrays?
+// - We only need to pass a pointer for 1D arrays to functions.
+// - The element size is implicitly shown from the pointer type.
+// - We can't index higher-dimensional arrays in C without knowing the length of the inner arrays.

@@ -1,0 +1,89 @@
+// Defining a Struct
+
+- Structs are useful for defining a group of data types together.
+Example
+struct flightType {
+    char flightNum[7];
+    int alt;
+    int long;
+    int lat;
+    int heading;
+    doule airSpeed;
+};
+
+To allocate memory for a struct, you declare a variable using the data type.
+struct flightType plane;
+- This will allocate enough memory for every data type inside the struct, then you can access each item by doing struct.item.
+
+Example:
+
+plane.alt = 300;
+
+You can declare an array of struct items:
+struct flightType planes[100]; <- This creates a struct array with name flightType with a size of 100 items. (100 structs of struct flightType)
+
+To access any struct within the struct array, you do planes[34].alt = 10000;
+
+// Pointers to Structs
+
+You can create pointers that point to structs.
+
+struct flightType *planePtr;
+planePtr = &planes[34]; <- like in the first class, we set the value of the pointer to the address of the struct we want to access.
+
+To access (or dereference) the struct we want to access, we type:
+(*planePtr).alt = 10000; <- remember that * is the dereference operator so that we access the value at the given address.
+
+The . operator has a higher precedence than * so you CANNOT write *planePtr.alt = 10000, you must have the perenthesis.
+
+You can also write planePtr->alt = 10000;
+
+planePtr->alt=10000; is the same as saying (*planePtr).alt = 10000;
+
+// Passing structs as arguments
+
+When structs are used in code, the value that is passed is their value, not their address like an array. When using structs, you want to pass their pointers.
+EXAMPLE:
+
+(if planeA->alt > planeB->alt) {
+    etc...
+}
+
+// What is the difference between these two?
+char s[] = "foo";
+char *t = "foo";
+
+In S, we are creating a new array and imprinting "foo" into it. This allocates new memory in the machine and in high use cases, can slow a computer down.
+In t, we are storing the "foo" inside the terminator value and replacing the value of an existing array because we are addressing the value of a pointer.
+So in t, we already have any existing array and we just change the value of the array. This is useful in saving memory. For s, we create new arrays which eats up memory.
+
+Because of this, when you do sizeof(x), on either s or t, you get different results.
+s references the array size so if you do sizeof(s), you get 3.
+t references the pointer so if you do sizeof(t), you get whatever the size of the pointer is.
+
+//
+
+struct point {doublex; double y; };
+struct point p = {0.5 , 1};
+struct point q;
+q=p; <- This copies the data, same as q.x=p.x, q.y=p.y;
+
+struct point *ptr;
+
+ptr = &p;
+ptr->x=25;
+(*ptr).x
+
+void foo (struct point p) {
+    p.x = 0;
+    p.y = 0;
+}
+void foo2 (struct point *p) {
+    p->x=0;
+    p->y=0;
+}
+{
+    struct point center;
+    foo(center); <- This does not affect center.
+    foo2(center); <- This changes the values of center.
+}
