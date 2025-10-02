@@ -5,6 +5,11 @@
 
 int main(int argc, char* argv[])
 {
+    if (argc < 2) {
+        printf("%s\n", "Invalid number of arguments.");
+        return 1;
+    }
+
     //if balanced, print nothing and exit with status EXIT_SUCCESS
     //if not valanced, print error message and exit with status EXIT_FAILURE
     //error message: print the index for the unexpected delimiter and the closing delimiter encourtered
@@ -12,11 +17,6 @@ int main(int argc, char* argv[])
 
     Stack s;
     init(&s);
-
-    if (argc < 2) {
-        printf("%s\n", "Invalid number of arguments.");
-        return 1;
-    }
 
     for(int i = 0; i < strlen(argv[1]); i++) 
     {
