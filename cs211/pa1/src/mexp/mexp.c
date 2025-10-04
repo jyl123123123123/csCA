@@ -88,7 +88,10 @@ int main(int argc, char* argv[])
 
     for (int i = 0; i < k; i++) {
         for (int j = 0; j < k; j++) {
-            printf("%d ", result[i][j]);
+            printf("%d", result[i][j]);
+            if (j < k-1) {
+                printf("%s", " ");
+            }
         }
         printf("\n");
     }

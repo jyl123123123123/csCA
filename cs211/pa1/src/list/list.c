@@ -49,4 +49,6 @@ int main(int argc, char* argv[])
         }
         printList(head);
     }
+
+    freeList(head);
 }
