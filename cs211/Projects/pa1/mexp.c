@@ -12,6 +12,82 @@ int main(int argc, char* argv[])
     //next K lines: k integers = M
     //final line = n
 
+    int k;
+    scanf("%d", &k);
+    //printf("k = %d.\n", k);
+
+    int** matrix = malloc(k * sizeof(int*));
+    int** result = malloc(k * sizeof(int*));
+    int** temp = malloc(k * sizeof(int*));
+
+    for(int i = 0; i < k; i++)
+    {
+        matrix[i] = malloc(k * sizeof(int));
+        result[i] = malloc(k * sizeof(int));
+        temp[i] = malloc(k * sizeof(int));
+    }
+
+    for(int i = 0; i < k; i++)
+    {
+        for(int j = 0; j < k; j++)
+        {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    int n;
+    scanf("%d", &n);
+    //printf("n = %d.\n", n);
 
     
+    
+    for (int i = 0; i < k; i++) 
+    {
+        for (int j = 0; j < k; j++)
+        {
+            result[i][j] = 0;
+        }
+        result[i][i] = 1;
+    }
+
+    for(int t = 0; t < n; t++)
+    {
+        for(int i = 0; i < k; i++)
+        {
+            for(int j = 0; j < k; j++)
+            {
+                int temp_ = 0;
+                for(int l = 0; l < k; l++)
+                {
+                    temp_ = temp_ + result[i][l] * matrix[l][j];
+                }
+                temp[i][j] = temp_;
+                //matrix[i] * matrix[j]
+            }
+        }
+        for(int i = 0; i < k; i++)
+        {
+            for(int j = 0; j < k; j++)
+            {
+                result[i][j] = temp[i][j];
+            }
+        }
+    }
+
+    for (int i = 0; i < k; i++) {
+        for (int j = 0; j < k; j++) {
+            printf("%d ", result[i][j]);
+        }
+        printf("\n");
+    }
+
+    for(int i = 0; i < k; i++)
+    {
+        free(matrix[i]);
+        free(result[i]);
+        free(temp[i]);
+    }
+    free(matrix);
+    free(result);
+    free(temp);
 }
